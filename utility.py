@@ -14,16 +14,18 @@ def overlap_integral(bra, ket):
     result = np.dot(np.conj(bra), ket)
     return result
 
-def fermi_dirac(E, E_Fermi, k_B=8.617333262145e-5, T=300):
+def fermi_dirac(E, E_Fermi, k_B=8.617333262145e-5, T=300): # you can change the temperature too! it's set to 300K
     return expit((E_Fermi - E) / (k_B * T))
 
-# Define the product function P_1234
+# Define the product function P_1234, E = band energies, f = computed in the main code
 def P_1234(E, f):
     return (1 - f[0]) * (1 - f[1]) * f[2] * f[3]
 
 def delta_func(E1, E2, E3, E4, sigma=0.01):
    # Computes the Gaussian model of the delta function.
+    # prefactor = 1/(np.sqrt(2 * np.pi) * sigma) if needed for final fine tuning
     return np.exp(-(E1 + E2 - E3 - E4)**2 / (2 * sigma**2))
+    #return prefactor * np.exp(-(E1 + E2 - E3 - E4)**2 / (2 * sigma**2))
 
 if __name__ == '__main__':
    kpoints = np.load('kgrid_10_47.npy')
