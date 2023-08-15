@@ -3,11 +3,13 @@ import random, math, os
 from joblib import Parallel, delayed
 from utility import *
 
-e_f = 4.401071
+i_min = 6 # copy them from band_info.txt
+i_max = 26 # copy them from band_info.txt
+E_Fermi = 4.401071 # copy them from band_info.txt
 X = 100
 XX = 22776
 data = np.load('Egrid_'+str(X)+'_'+str(XX)+'.npy')
-data = data[6:26]
+data = data[i_min:i_max]
 kpoints = np.load('kw_'+str(X)+'_'+str(XX)+'.npy')
 
 # Ideally, don't touch anything after this line
@@ -17,7 +19,6 @@ Nk = kpoints.shape[0]
 looper = data.shape[0]
 
 band_energies = data
-E_Fermi = e_f
 # Create a function to calculate the Gamma contribution for a single iteration
 def calculate_gamma(iteration, looper, Nk, band_energies, E_Fermi, kpoints):
     print(f"Executing {iteration} on pid {os.getpid()}")
@@ -53,7 +54,7 @@ nbr_samples_per_block = math.ceil(nbr_samples_in_total / nbr_parallel_blocks)
 
 # Calculate the Gamma contribution using Parallel and delayed
 Gamma_contributions = Parallel(n_jobs=nbr_parallel_blocks, verbose = 11, backend='multiprocessing')(
-    delayed(calculate_gamma)(nbr_samples_per_block, looper, Nk, band_energies, e_f, kpoints)
+    delayed(calculate_gamma)(nbr_samples_per_block, looper, Nk, band_energies, E_Fermi, kpoints)
     for _ in range(nbr_parallel_blocks)
 )
 
