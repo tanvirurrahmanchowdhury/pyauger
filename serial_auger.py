@@ -25,7 +25,6 @@ current_time = time.time()
 
 # Initialize a variable to keep track of the time of the last save
 last_save_time = current_time
-E_Fermi = e_f
 
 Gamma = 0.0
 
