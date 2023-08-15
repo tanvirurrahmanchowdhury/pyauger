@@ -38,29 +38,33 @@ These steps guide you through the process of using the provided code for Auger c
 
 Things to keep in mind
 
-• Model Hyperparameter
+1. Model Hyperparameter
 The hyperparameter σ plays a critical role within the model’s configuration. Currently, it has been predefined as 0.01, reflecting the existing setting. However, it’s worth noting that the code allows for flexible adjustment of this hyperparameter.
 Should the need arise to fine-tune or optimize the σ value to align with specific requirements, such modifications can be made directly within the codebase. This level of adaptability ensures that the model’s performance can be effectively tailored to meet varying scenarios and objectives.
 
-• Optimal Computation Focus
+2. Optimal Computation Focus
 For optimal efficiency and accuracy, it is recommended to restrict computations to bands situated close to the band edges. The provided code specifically targets transitions within the range of 30 bands around the Fermi energy. This approach ensures that the computational efforts are concentrated on relevant electronic transitions, enhancing the precision of the results while conserving computational resources. 0Although, this number can easily be changed.
 
 Code Variants: Serial and Parallel
 This documentation outlines the differences between the serial and parallel versions of the code, focusing on their performance and considerations for optimal execution.
-• Serial Version vs. Parallel Version
+
+1. Serial Version vs. Parallel Version
 The code is available in both serial and parallel versions, each with distinct performance characteristics. The parallel version is designed to enhance execution speed by utilizing multiple processing units (using joblib library).
-• Performance Comparison
+
+2. Performance Comparison
 While the parallel version offers faster execution times, it is important to note that the computational gains might not be substantial in all scenarios. Initial test runs indicate that the performance improvement might not be significant.
-• Optimization Factors
+
+3. Optimization Factors
 To achieve the best performance for your specific use case, consider the following optimization factors:
 
-– Total Monte Carlo Samples: Experiment with varying the number of total Monte Carlo samples. Adjusting this parameter could impact the execution speed and accuracy of results.
+a) Total Monte Carlo Samples: Experiment with varying the number of total Monte Carlo samples. Adjusting this parameter could impact the execution speed and accuracy of results.
 
-– Number of Parallel Blocks: Modify the number of parallel blocks used during execution. Finding the optimal balance between parallelization and computational efficiency is key.
+b) Number of Parallel Blocks: Modify the number of parallel blocks used during execution. Finding the optimal balance between parallelization and computational efficiency is key.
 
-– Performance Evaluation: Conduct thorough performance evaluations by testing different configurations and measuring their impact on both serial and parallel versions.
+c) Performance Evaluation: Conduct thorough performance evaluations by testing different configurations and measuring their impact on both serial and parallel versions.
 
-• Experiment and Refine
+4. Experiment and Refine
 To determine the most effective configuration for your computational needs, it is recommended to experiment with different combinations of parameters. This process involves adjusting the total Monte Carlo samples, number of parallel blocks, and other relevant parameters to find the optimal balance between execution time and results accuracy.
+
 Keep in mind that the choice between the serial and parallel versions should be driven by the specific requirements of your task and the available hardware resources.
 For further assistance or guidance on optimizing the code’s performance, feel free to refer to this documentation or reach out to the designated support channels.
