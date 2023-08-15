@@ -39,10 +39,8 @@ for VAR in "${kpoints[@]}"; do
   cp $PSCR $CALC_PARAM$VAR/POSCAR
   cp $WV $CALC_PARAM$VAR/CHGCAR
   
-  # Edit INCAR/KPOINTS/POSCAR. Comment any lines don't needed
-  #sed -i "s/.*.*/AEXX = $VAR/" $CALC_PARAM$VAR/INCAR
+  # Edit KPOINTS
   sed -i "4s/.* .*/$VAR $VAR $VAR/" $CALC_PARAM$VAR/KPOINTS
-  #sed -i "2s/.*/$VAR/" $CALC_PARAM$VAR/POSCAR
   # Run VASP
   cd $CALC_PARAM$VAR; mpirun -n 64 vasp_std > vasp.out; cd ../
   
