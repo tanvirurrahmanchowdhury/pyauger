@@ -13,12 +13,13 @@ import matplotlib.pyplot as plt
 plt.rcParams.update({'font.size' : 14})
 
 looper = 20.0
-x = np.array([1e7, 1e8, 1e9, 1e10, 1e11])
-y = np.array([3.18E-55, 4.73E-30, 1.31e-13, 4.56E-13, 3.9e-12])
-z = np.array([6.979E-62, 7.245E-40, 8.88e-28, 5.248E-24, 3.16e-15])
-b = np.array([7.02E-93, 3.89E-56, 8.72e-42, 4.68E-28, 1.15e-26])
-c = np.array([2.91E-71, 2.20E-60, 2.76e-43, 2.72E-33])
+x = np.array([1e7, 1e8, 1e9, 1e10, 1e11]) # monte-carlo steps
+y = np.array([3.18E-55, 4.73E-30, 1.31e-13, 4.56E-13, 3.9e-12]) # kgrid = 10
+z = np.array([6.979E-62, 7.245E-40, 8.88e-28, 5.248E-24, 3.16e-15]) # kgrid = 20
+b = np.array([7.02E-93, 3.89E-56, 8.72e-42, 4.68E-28, 1.15e-26]) # kgrid = 50
+c = np.array([2.91E-71, 2.20E-60, 2.76e-43, 2.72E-33]) # kgrid = 100
 
+# multiply with the prefactor XX and loopers
 y *= (looper ** 4 * 47 ** 4) / x
 z *= (looper ** 4 * 256 ** 4) / x
 b *= (looper ** 4 * 3107 ** 4) / x
@@ -51,5 +52,5 @@ ax2.set_yscale('log')
 ax2.set_ylim((pow(10, -84), pow(10, -2)))
 ax2.tick_params(axis='y', which='both', direction='in', length=10, left=True, right=True)
 
-plt.savefig('/home/shah/Pictures/dft_bands/oj.png', dpi=300,bbox_inches="tight")
+plt.savefig('<PATH_OF_YOUR_DIRECTORY>.png', dpi=300,bbox_inches="tight")
 plt.show()
