@@ -1,5 +1,5 @@
 # auger_py
-A Draft First Principle Auger Computation Code using Python
+A Draft First Principle Auger Computation Code using Python with VASP.
 
 Package requirements
 • numpy
@@ -10,7 +10,7 @@ Package requirements
 
 
 1. PBE Bandstructure Calculation
-Perform a regular PBE bandstructure calculation using the pymatgen package. You can find an example of this process in the provided link. Please note that some functionalities might differ in the updated pymatgen API.
+Perform a regular PBE bandstructure calculation in VASP (for example using the pymatgen vasp input sets). You can find an example of this process in the provided link. Please note that some functionalities might differ in the updated pymatgen API.
 
 2. Set Up Directory
 Copy the non-SCF (self-consistent field) directory and place the k grid sample.sh script within it.
