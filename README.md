@@ -37,9 +37,11 @@ Upon completion of a computation, read the job-name.out file for results. For de
 These steps guide you through the process of using the provided code for Auger computations. If you encounter any issues or need further assistance, please refer to this documentation or contact the relevant support channels.
 
 Things to keep in mind
+
 • Model Hyperparameter
 The hyperparameter σ plays a critical role within the model’s configuration. Currently, it has been predefined as 0.01, reflecting the existing setting. However, it’s worth noting that the code allows for flexible adjustment of this hyperparameter.
 Should the need arise to fine-tune or optimize the σ value to align with specific requirements, such modifications can be made directly within the codebase. This level of adaptability ensures that the model’s performance can be effectively tailored to meet varying scenarios and objectives.
+
 • Optimal Computation Focus
 For optimal efficiency and accuracy, it is recommended to restrict computations to bands situated close to the band edges. The provided code specifically targets transitions within the range of 30 bands around the Fermi energy. This approach ensures that the computational efforts are concentrated on relevant electronic transitions, enhancing the precision of the results while conserving computational resources. 0Although, this number can easily be changed.
 
