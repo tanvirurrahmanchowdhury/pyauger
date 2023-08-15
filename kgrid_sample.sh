@@ -25,7 +25,7 @@ PTCR=POTCAR
 PSCR=POSCAR
 WV=CHGCAR
 CALC_PARAM="k_grid_"
-kpoints=( 10 20 50 100 )
+kpoints=( 10 20 50 100 ) # change kgrid here. For example, 10 20 50 etc.
 
 # Run Calculation
 for VAR in "${kpoints[@]}"; do
