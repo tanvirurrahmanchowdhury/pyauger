@@ -1,5 +1,5 @@
 # PyAuger v0.0.1
-An incomplete First-Principle Auger Computation Code using Python with VASP.
+An incomplete First-Principle Auger Computation Code in Python with VASP.
 
 ## Package requirements
 • numpy
