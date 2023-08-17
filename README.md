@@ -87,7 +87,7 @@ While the parallel version offers faster execution times, it is important to not
 2. **Optimization Factors**  
 To achieve the best performance for your specific use case, consider the following optimization factors:
  1. **Total Monte Carlo Samples:** Experiment with varying the number of total Monte Carlo samples. Adjusting this parameter could impact the execution speed and accuracy of results. `nbr_samples_in_total = int(1e11)`
- 2. **Number of Parallel Blocks:** Modify the number of parallel blocks used during execution. Finding the optimal balance between parallelization and computational efficiency is key. `nbr_parallel_blocks = 10`
+ 2. **Number of Parallel Blocks:** Modify the number of parallel blocks used during execution. `nbr_parallel_blocks = 10` Finding the optimal balance between parallelization and computational efficiency is key.
  3. **Performance Evaluation:** Conduct thorough performance evaluations by testing different configurations and measuring their impact on both serial and parallel versions.
 
 3. **Experiment and Refine**  
