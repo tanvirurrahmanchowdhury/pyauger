@@ -2,12 +2,28 @@
 An incomplete First-Principle Auger Computation Code in Python with VASP.
 
 ## Requirements
-* python >= 3.9
-* numpy
-* scipy
-* matplotlib, seaborn
-* pymatgen
-* pandas *(optional)*
+You can use *conda* to create an environment with the following yaml.
+```
+name: pyauger
+dependencies:
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - pillow
+  - graphviz
+  - python-graphviz
+  - imageio
+  - joblib
+```
+The code was created and texted with the following versions -
+* python 3.9.13
+* numpy 1.21.5
+* scipy 1.7.3
+* matplotlib 3.5.2
+* seaborn 0.12.1
+* pymatgen >= 2022.x
+* pandas 1.4.2
 ---
 * * *
 ## Background
@@ -19,20 +35,13 @@ where, $P_{1234}=f_1f_2(1-f_3)(1-f_4)$, $f_n$ is the Fermi-Dirac distribution \f
 * * *
 ## Running a Computation: A Step-by-Step Guide
 
-1. **PBE Bandstructure Calculation**  Perform a regular PBE bandstructure calculation using the *pymatgen* package. You can find an example of this process in the provided [Link](http://matgenb.materialsvirtuallab.org/2017/04/14/Inputs-and-Analysis-of-VASP-runs.html).  Please note that some functionalities might differ in the updated *Material Project* [new API examples](https://docs.materialsproject.org/downloading-data/using-the-api/examples).
-
+1. **PBE Bandstructure Calculation**  Perform a regular PBE bandstructure calculation using the *pymatgen* package. You can find an example of this process in the provided [Link](http://matgenb.materialsvirtuallab.org/2017/04/14/Inputs-and-Analysis-of-VASP-runs.html).  Please note that some functionalities might differ in the updated *Material Project* new API [examples](https://docs.materialsproject.org/downloading-data/using-the-api/examples).
 2. **Set Up Directory**  Copy the non-SCF (self-consistent field) directory and place the *k_grid_sample.sh* script within it.
-
 3. **Adjust INCAR File and Run Non-SCF Calculations**  Review the INCAR file tags and make any necessary adjustments. Once satisfied, execute the *k_grid_sample.sh* script. This script will initiate non-SCF calculations for various k-grids, which can be configured from within the script itself. Please carefully examine the script's content.
-
 4. **Post-Computation Analysis**  After the calculations are converged, copy the *parse_output.py* Python script from the directory. This script can be used to check convergence, parse Fermi energy, k-grid details, band energies, point weights, and more. You can customize the script according to your needs. Ensure that the directory contains *KPOINTS, vasprun.xml,* and *EIGENVAL* files as these are required by the script.  Subsequently, execute the *get_fermi_cutoff.py* script. This action will produce a text file named *band_info.txt*, which will encompass details such as the fermi energy, as well as the minimum and maximum band indices necessary for running the *parallel*_carlo.py* or *carlo_auger.py* code in the later stages. Generally, this step needs to be carried out only once, perhaps with a $20\times20\times20$ or $50\times50\times50$ kgrid configuration, since empirical tests have shown minimal variance in the band indices as the kgrid dimensions are increased.
-
 5. **File Naming**  File names are self-explanatory. For instance, *kw_10_47.npy* is the k-point weight file resulting from a $10\times10\times10$ k-grid computation with 47 irreducible k-points. I will call $10$ as $X$ and $47$ as $XX$. So, for $20\times20\times20$ grid, $X=20$ and $XX=256$ as there are $256$ irreducible k-points.  How do you get these numbers? *parse_output.py* script will tell you these numbers when you run it.
-
-6.**Create a New Directory**  Run the *create_oj_dir.sh* script. It will create a new directory called *auger_main* and copy all *.npy* files in that directory.  Along with these, you need to copy *parallel_carlo.py* or *carlo_auger.py* and job submission script to the *auger_main* directory.  The difference between *parallel_carlo.py* and *carlo_auger.py* is that one is parallel and one is serial. The difference and best practices have been explained in a later section.
-
+6. **Create a New Directory**  Run the *create_oj_dir.sh* script. It will create a new directory called *auger_main* and copy all *.npy* files in that directory.  Along with these, you need to copy *parallel_carlo.py* or *carlo_auger.py* and job submission script to the *auger_main* directory.  The difference between *parallel_carlo.py* and *carlo_auger.py* is that one is parallel and one is serial. The difference and best practices have been explained in a later section.
 7. **Run Calculation**  Execute the *job_script.sh* script. Before each run, remember to modify the job name. Also, update the $X$ and $XX$ tags in the *parallel_carlo.py* script as necessary.
-
 8. **Check Outputs**  Upon completion of a computation, read the *job-name.out* file for results. For details of any errors, refer to the *job-name.err* file.  These steps guide you through the process of using the provided code for Auger computations. If you encounter any issues or need further assistance, please refer to this documentation or contact the relevant support channels.
 
 ---
