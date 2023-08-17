@@ -72,9 +72,13 @@ The hyperparameter $\sigma$ plays a critical role within the model's configurati
 This level of adaptability ensures that the model's performance can be effectively tailored to meet varying scenarios and objectives. <br />
 
 2. **Changing Temperature** <br />
-The computations will be executed at a temperature of $T=300K$. If you wish to modify the temperature, adjust the associated variable $T$ within the *fermi_dirac()* function. <br />
+The computations will be executed at a temperature of $T=300K$. If you wish to modify the temperature, adjust the associated variable $T$ within the *fermi_dirac()* function.
+```
+def fermi_dirac(E, E_Fermi, k_B=8.617333262145e-5, T=300):
+    return expit((E_Fermi - E) / (k_B * T))
+```
 
-3. **Optimal Computation Focus** <br />
+4. **Optimal Computation Focus** <br />
 For optimal efficiency and accuracy, it is recommended to restrict computations to bands situated close to the band edges. The provided code specifically targets transitions within the range of 30 bands around the Fermi energy. This approach ensures that the computational efforts are concentrated on relevant electronic transitions, enhancing the precision of the results while conserving computational resources. Although, this number can easily be changed.
 
  ---
