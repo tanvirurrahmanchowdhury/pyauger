@@ -77,7 +77,8 @@ The computations will be executed at a temperature of $T=300K$. If you wish to m
 3. **Optimal Computation Focus** <br />
 For optimal efficiency and accuracy, it is recommended to restrict computations to bands situated close to the band edges. The provided code specifically targets transitions within the range of 30 bands around the Fermi energy. This approach ensures that the computational efforts are concentrated on relevant electronic transitions, enhancing the precision of the results while conserving computational resources. Although, this number can easily be changed.
 
-
+ ---
+* * *
 ## Code Variants: Serial and Parallel
 
 The code is available in both serial and parallel versions, each with distinct performance characteristics. The parallel version is designed to enhance execution speed by utilizing multiple processing units (using *joblib* library).
