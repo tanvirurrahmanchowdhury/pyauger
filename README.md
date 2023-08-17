@@ -60,33 +60,31 @@ The hyperparameter $\sigma$ plays a critical role within the model's configurati
        prefactor = 1/(np.sqrt(2 * np.pi) * sigma)
        return prefactor * np.exp(-(E1 + E2 - E3 - E4)**2 / (2 * sigma**2))
 ```
-This level of adaptability ensures that the model's performance can be effectively tailored to meet varying scenarios and objectives.
+This level of adaptability ensures that the model's performance can be effectively tailored to meet varying scenarios and objectives. <br />
+
 2. **Changing Temperature** <br />
-The computations will be executed at a temperature of $T=300K$. If you wish to modify the temperature, adjust the associated variable $T$ within the *fermi_dirac()* function.
+The computations will be executed at a temperature of $T=300K$. If you wish to modify the temperature, adjust the associated variable $T$ within the *fermi_dirac()* function. <br />
+
 3. **Optimal Computation Focus** <br />
 For optimal efficiency and accuracy, it is recommended to restrict computations to bands situated close to the band edges. The provided code specifically targets transitions within the range of 30 bands around the Fermi energy. This approach ensures that the computational efforts are concentrated on relevant electronic transitions, enhancing the precision of the results while conserving computational resources. Although, this number can easily be changed.
 
 
 ## Code Variants: Serial and Parallel
-This documentation outlines the differences between the serial and parallel versions of the code, focusing on their performance and considerations for optimal execution.
 
-1. Serial Version vs. Parallel Version
-The code is available in both serial and parallel versions, each with distinct performance characteristics. The parallel version is designed to enhance execution speed by utilizing multiple processing units (using joblib library).
+The code is available in both serial and parallel versions, each with distinct performance characteristics. The parallel version is designed to enhance execution speed by utilizing multiple processing units (using *joblib* library).
 
-2. Performance Comparison
+1. **Performance Comparison** <br />
+
 While the parallel version offers faster execution times, it is important to note that the computational gains might not be substantial in all scenarios. Initial test runs indicate that the performance improvement might not be significant.
-
-3. Optimization Factors
+2. **Optimization Factors** <br />
 To achieve the best performance for your specific use case, consider the following optimization factors:
 
-a) Total Monte Carlo Samples: Experiment with varying the number of total Monte Carlo samples. Adjusting this parameter could impact the execution speed and accuracy of results.
-
-b) Number of Parallel Blocks: Modify the number of parallel blocks used during execution. Finding the optimal balance between parallelization and computational efficiency is key.
-
-c) Performance Evaluation: Conduct thorough performance evaluations by testing different configurations and measuring their impact on both serial and parallel versions.
-
-4. Experiment and Refine
+  1. **Total Monte Carlo Samples:** Experiment with varying the number of total Monte Carlo samples. Adjusting this parameter could impact the execution speed and accuracy of results.
+  2. **Number of Parallel Blocks:** Modify the number of parallel blocks used during execution. Finding the optimal balance between parallelization and computational efficiency is key.
+  3. **Performance Evaluation:** Conduct thorough performance evaluations by testing different configurations and measuring their impact on both serial and parallel versions.
+3. **Experiment and Refine** <br />
 To determine the most effective configuration for your computational needs, it is recommended to experiment with different combinations of parameters. This process involves adjusting the total Monte Carlo samples, number of parallel blocks, and other relevant parameters to find the optimal balance between execution time and results accuracy.
 
-Keep in mind that the choice between the serial and parallel versions should be driven by the specific requirements of your task and the available hardware resources.
-For further assistance or guidance on optimizing the code’s performance, feel free to refer to this documentation or reach out to the designated support channels.
+<br /> Keep in mind that the choice between the serial and parallel versions should be driven by the specific requirements of your task and the available hardware resources.
+
+<br /> For further assistance or guidance on optimizing the code's performance, feel free to refer to this documentation or reach out to the designated support channels.
