@@ -1,7 +1,7 @@
-# auger_py
+# PyAuger v0.0.1
 A Draft First Principle Auger Computation Code using Python with VASP.
 
-Package requirements
+## Package requirements
 • numpy
 • scipy
 • matplotlib, seaborn
