@@ -80,6 +80,10 @@ def fermi_dirac(E, E_Fermi, k_B=8.617333262145e-5, T=300):
 
 4. **Optimal Computation Focus** <br />
 For optimal efficiency and accuracy, it is recommended to restrict computations to bands situated close to the band edges. The provided code specifically targets transitions within the range of 30 bands around the Fermi energy. This approach ensures that the computational efforts are concentrated on relevant electronic transitions, enhancing the precision of the results while conserving computational resources. Although, this number can easily be changed.
+```
+i_min = 6 # copy it from band_info.txt or change this
+i_max = 26 # copy it from band_info.txt or change this
+```
 
  ---
 * * *
