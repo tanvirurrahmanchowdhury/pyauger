@@ -40,7 +40,7 @@ In the pursuit of quantifying the temporal evolution of carrier states, we resor
 $$C_{auger}=\text{constant}\times\sum_{\mathbf{1234}}\mathbf{P_{1234}}|\mathbf{M_{1234}}|^2\delta(E_1+E_2-E_3-E_4)$$
 where, $P_{1234}=f_1f_2(1-f_3)(1-f_4)$, $f_n$ is the Fermi-Dirac distribution $$f(E) = \left[ e^{(E-E_F)/k_BT}+1 \right] ^{-1}$$ The $\delta(E_1+E_2-E_3-E_4)$ function is modeled in terms of a Gaussian function.
  $$\delta(E_1+E_2-E_3-E_4) \approx e^{-(E_1+E_2-E_3-E_4)^2/2\sigma^2}$$
- Please note that the current incomplete version of the code $C'_{auger}=\text{constant}\times\sum_{\mathbf{1234}}\mathbf{P_{1234}}\delta(E_1+E_2-E_3-E_4)$. That is - |\mathbf{M_{1234}}|^2 has not been implemented yet.
+ Please note that the current incomplete version of the code $C'_{auger}=\sum_{\mathbf{1234}}\mathbf{P_{1234}}\delta(E_1+E_2-E_3-E_4)$. That is - $|\mathbf{M_{1234}}|^2$ has not been implemented yet.
  
  ---
 * * *
@@ -87,7 +87,7 @@ While the parallel version offers faster execution times, it is important to not
 2. **Optimization Factors**  
 To achieve the best performance for your specific use case, consider the following optimization factors:
  1. **Total Monte Carlo Samples:** Experiment with varying the number of total Monte Carlo samples. Adjusting this parameter could impact the execution speed and accuracy of results. ```nbr_samples_in_total = int(1e11) ```
- 2. **Number of Parallel Blocks:** Modify the number of parallel blocks used during execution. Finding the optimal balance between parallelization and computational efficiency is key. `nbr_parallel_blocks = 10`
+ 2. **Number of Parallel Blocks:** Modify the number of parallel blocks used during execution. Finding the optimal balance between parallelization and computational efficiency is key. ```nbr_parallel_blocks = 10```
  3. **Performance Evaluation:** Conduct thorough performance evaluations by testing different configurations and measuring their impact on both serial and parallel versions.
 
 3. **Experiment and Refine**  
