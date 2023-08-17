@@ -82,11 +82,9 @@ For optimal efficiency and accuracy, it is recommended to restrict computations 
 The code is available in both serial and parallel versions, each with distinct performance characteristics. The parallel version is designed to enhance execution speed by utilizing multiple processing units (using *joblib* library).
 
 1. **Performance Comparison** <br />
-
 While the parallel version offers faster execution times, it is important to note that the computational gains might not be substantial in all scenarios. Initial test runs indicate that the performance improvement might not be significant.
 2. **Optimization Factors** <br />
 To achieve the best performance for your specific use case, consider the following optimization factors:
-
   1. **Total Monte Carlo Samples:** Experiment with varying the number of total Monte Carlo samples. Adjusting this parameter could impact the execution speed and accuracy of results.
   2. **Number of Parallel Blocks:** Modify the number of parallel blocks used during execution. Finding the optimal balance between parallelization and computational efficiency is key.
   3. **Performance Evaluation:** Conduct thorough performance evaluations by testing different configurations and measuring their impact on both serial and parallel versions.
