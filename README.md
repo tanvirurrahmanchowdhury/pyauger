@@ -1,8 +1,8 @@
-# PyAuger v0.0.1
-An incomplete First-Principle Auger Computation Code in Python with VASP.
+# PyAuger v-0.0.1
+An incomplete First-Principle Auger Computation Code in Python with [VASP](https://www.vasp.at/).
 
 ## Requirements
-You can use *conda* to create an environment with the following yaml.
+You can use *conda* to create an environment with the following *yaml*.
 ```
 name: pyauger
 dependencies:
@@ -16,7 +16,7 @@ dependencies:
   - imageio
   - joblib
 ```
-The code was created and texted with the following versions -
+The code was created and tested with the following versions -
 * python 3.9.13
 * numpy 1.21.5
 * scipy 1.7.3
@@ -27,15 +27,16 @@ The code was created and texted with the following versions -
 ---
 * * *
 ## Background
+
 In the pursuit of quantifying the temporal evolution of carrier states, we resort to the application of the Fermi Golden Rule derived from the principles of time-dependent perturbation theory. This approach empowers us to accurately evaluate the probability of transition between states, facilitating a comprehensive understanding of the dynamic behavior of carriers over time.
 $$C_{auger}=\text{constant}\times\sum_{\mathbf{1234}}\mathbf{P_{1234}}|\mathbf{M_{1234}}|^2\delta(E_1+E_2-E_3-E_4)$$
-where, $P_{1234}=f_1f_2(1-f_3)(1-f_4)$, $f_n$ is the Fermi-Dirac distribution \footnote{$f(E) = \left[ e^{(E-E_F)/k_BT}+1 \right] ^{-1}$}. The $\delta(E_1+E_2-E_3-E_4)$ function is modeled in terms of a Gaussian function.
+where, $P_{1234}=f_1f_2(1-f_3)(1-f_4)$, $f_n$ is the Fermi-Dirac distribution $$f(E) = \left[ e^{(E-E_F)/k_BT}+1 \right] ^{-1}$$. The $\delta(E_1+E_2-E_3-E_4)$ function is modeled in terms of a Gaussian function.
  $$\delta(E_1+E_2-E_3-E_4) \approx e^{-(E_1+E_2-E_3-E_4)^2/2\sigma^2}$$
  ---
 * * *
 ## Running a Computation: A Step-by-Step Guide
 
-1. **PBE Bandstructure Calculation**  Perform a regular PBE bandstructure calculation using the *pymatgen* package. You can find an example of this process in the provided [Link](http://matgenb.materialsvirtuallab.org/2017/04/14/Inputs-and-Analysis-of-VASP-runs.html).  Please note that some functionalities might differ in the updated *Material Project* new API [examples](https://docs.materialsproject.org/downloading-data/using-the-api/examples).
+1. **PBE Bandstructure Calculation** \ Perform a regular PBE bandstructure calculation using the *pymatgen* package. You can find an example of this process in the provided [Link](http://matgenb.materialsvirtuallab.org/2017/04/14/Inputs-and-Analysis-of-VASP-runs.html).  Please note that some functionalities might differ in the updated *Material Project* new API [examples](https://docs.materialsproject.org/downloading-data/using-the-api/examples).
 2. **Set Up Directory**  Copy the non-SCF (self-consistent field) directory and place the *k_grid_sample.sh* script within it.
 3. **Adjust INCAR File and Run Non-SCF Calculations**  Review the INCAR file tags and make any necessary adjustments. Once satisfied, execute the *k_grid_sample.sh* script. This script will initiate non-SCF calculations for various k-grids, which can be configured from within the script itself. Please carefully examine the script's content.
 4. **Post-Computation Analysis**  After the calculations are converged, copy the *parse_output.py* Python script from the directory. This script can be used to check convergence, parse Fermi energy, k-grid details, band energies, point weights, and more. You can customize the script according to your needs. Ensure that the directory contains *KPOINTS, vasprun.xml,* and *EIGENVAL* files as these are required by the script.  Subsequently, execute the *get_fermi_cutoff.py* script. This action will produce a text file named *band_info.txt*, which will encompass details such as the fermi energy, as well as the minimum and maximum band indices necessary for running the *parallel*_carlo.py* or *carlo_auger.py* code in the later stages. Generally, this step needs to be carried out only once, perhaps with a $20\times20\times20$ or $50\times50\times50$ kgrid configuration, since empirical tests have shown minimal variance in the band indices as the kgrid dimensions are increased.
