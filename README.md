@@ -5,7 +5,6 @@ An incomplete First-Principle Auger Computation Code in Python with [VASP](https
   <img src="bitmap.png" />
 </p>
 
-Copyright (c) <2023> Shah Tanvir ur Rahman Chowdhury
 
 ## Requirements
 You can use *conda* to create an environment with the following *yaml*.
