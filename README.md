@@ -1,4 +1,4 @@
-# PyAuger v-0.0.1
+# PyAuger version-0.0.1
 An incomplete First-Principle Auger Computation Code in Python with [VASP](https://www.vasp.at/).
 
 <p align="center">
