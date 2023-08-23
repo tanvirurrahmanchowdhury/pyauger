@@ -37,7 +37,7 @@ In the pursuit of quantifying the temporal evolution of carrier states, we resor
 $$C_{auger}=\text{constant}\times\sum_{\mathbf{1234}}\mathbf{P_{1234}}|\mathbf{M_{1234}}|^2\delta(E_1+E_2-E_3-E_4)$$
 where, $P_{1234}=f_1f_2(1-f_3)(1-f_4)$, $f_n$ is the Fermi-Dirac distribution $$f(E) = \left[ e^{(E-E_F)/k_BT}+1 \right] ^{-1}$$ The $\delta(E_1+E_2-E_3-E_4)$ function is modeled in terms of a Gaussian function.
  $$\delta(E_1+E_2-E_3-E_4) \approx e^{-(E_1+E_2-E_3-E_4)^2/2\sigma^2}$$
- Please note that the current incomplete version of the code computes $$\Gamma_{auger}=\sum_{\mathbf{1234}}\mathbf{P_{1234}}\delta(E_1+E_2-E_3-E_4)$$. That is, $|\mathbf{M_{1234}}|^2$ has not been implemented yet.
+ Please note that the current incomplete version of the code computes $$\Gamma_{auger}=\sum_{\mathbf{1234}}\mathbf{P_{1234}}\delta(E_1+E_2-E_3-E_4)$$ That is, $|\mathbf{M_{1234}}|^2$ has not been implemented yet. A current interest is to implement $|\mathbf{M_{1234}}|^2$ by parsing the wavefunctions using this [package](https://github.com/liming-liu/pyvaspwfc)
  
  ---
 * * *
