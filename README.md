@@ -111,5 +111,5 @@ To determine the most effective configuration for your computational needs, it i
 ## Implementing the matrix element
 One possible way to incorporate the matrix element is to perform the following steps:
 1. Since we already parse the wavevectors $\mathbf{k}$, we can compute the quantities $g^2=|\mathbf{k_1-k_3}|^2\approx |\mathbf{k_4-k_2}|^2$ and $h^2=|\mathbf{k_3-k_2}|^2 \approx |\mathbf{k_3-k_2}|^2$
-2. Parse the wavefunctions using *pyvaspwfc* for instance and use it to compute the overlap integrals $F(1,3)=\bra \psi_1|\psi_3\ket$ and $F(2,4)=\bra \psi_2|\psi_4\ket$
+2. Parse the wavefunctions using *pyvaspwfc* for instance and use it to compute the overlap integrals $F(1,3)=\langle  \psi_1|\psi_3\rangle $, $F(2,4)=\langle  \psi_2|\psi_4\rangle$, etc.
 3. Finally, use them to compute the matrix element $$|M|^2=\text{constant}\times \Biggl[|\frac{F(1,3)F(2,4)}{\lambda^2+g^2}|^2$$
